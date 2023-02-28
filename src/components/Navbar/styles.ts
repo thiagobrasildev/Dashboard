@@ -4,7 +4,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 30px;
+  height: 100%;
+  padding-top: 30px;
+  background-color: #fff;
 
   h1 {
     font-size: 1.8rem;
@@ -41,6 +43,22 @@ export const Container = styled.div`
     .selected {
       background-color: #2196f3;
       color: #fff;
+    }
+  }
+
+  .btn-close-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #616161;
+    padding: 16px;
+    color: #fff;
+    font-size: 1.5rem;
+    gap: 10px;
+
+    &:hover {
+      background-color: #000;
     }
   }
 `;

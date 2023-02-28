@@ -6,12 +6,14 @@ export const Container = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 50%;
-  height: 280px;
   overflow: hidden;
   gap: 15px;
 
   img {
     width: 100%;
-    height: 100%;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
   }
 `;

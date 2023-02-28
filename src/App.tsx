@@ -1,4 +1,6 @@
+import { useState } from "react";
 import {
+  FaBars,
   FaComment,
   FaRegEye,
   FaShareAlt,
@@ -7,19 +9,45 @@ import {
 } from "react-icons/fa";
 import * as S from "./AppStyles";
 import { CardColors } from "./components/CardColors";
+import { Countries } from "./components/Countries";
 import { Feeds } from "./components/Feeds";
+import { Footer } from "./components/Footer";
+import { GeneralStats } from "./components/GeneralStats";
 import { Logo } from "./components/Logo";
+import { MenuFooter } from "./components/MenuFooter";
 import { Navbar } from "./components/Navbar";
+import { RecentComments } from "./components/RecentComments";
+import { RecentUser } from "./components/RecentUser";
 import { Regions } from "./components/Regions";
 import { UserCard } from "./components/UserCard";
 
 export const App = () => {
+  const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
+  const handleMenuToggle = () => {
+    setToggleMenu(!toggleMenu);
+  };
+
   return (
     <S.ContainerMain>
       <S.Header>
-        <S.MenuMobile>menu</S.MenuMobile>
+        <S.MenuMobile onClick={handleMenuToggle}>
+          <FaBars color="#fff" size={18} />
+          Menu
+        </S.MenuMobile>
         <Logo />
       </S.Header>
+      {toggleMenu && (
+        <S.Modal onClick={handleMenuToggle} title="close side menu">
+          <S.SidebarMobile onClick={(e) => e.stopPropagation()} title="">
+            <UserCard />
+            <Navbar
+              closeMenu={toggleMenu}
+              handleMenuToggle={handleMenuToggle}
+            />
+          </S.SidebarMobile>
+        </S.Modal>
+      )}
       <S.Sidebar>
         <UserCard />
         <Navbar />
@@ -59,7 +87,39 @@ export const App = () => {
           <Regions />
           <Feeds />
         </div>
+        <div className="general-stats">
+          <GeneralStats />
+        </div>
+        <div className="countries">
+          <Countries />
+        </div>
+        <div className="recent-users">
+          <RecentUser />
+        </div>
+        <div className="recent-comments">
+          <RecentComments />
+        </div>
       </S.Dashboard>
+      <div className="menu-footer">
+        <MenuFooter
+          title="Demographic"
+          colorBar="#4caf50"
+          links={["Language", "Country", "City"]}
+        />
+        <MenuFooter
+          title="System"
+          colorBar="#f44336"
+          links={["Browser", "OS", "More"]}
+        />
+        <MenuFooter
+          title="Target"
+          colorBar="#ff9800"
+          links={["Users", "Active", "Geo", "Interests"]}
+        />
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
     </S.ContainerMain>
   );
 };

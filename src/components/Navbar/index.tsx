@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaBell,
   FaBullseye,
@@ -7,13 +8,30 @@ import {
   FaRegEye,
   FaRegGem,
   FaUsers,
+  FaWindowClose,
 } from "react-icons/fa";
 import * as S from "./styles";
 
-export const Navbar = () => {
+type Props = {
+  closeMenu?: boolean;
+  handleMenuToggle?: () => void;
+};
+
+export const Navbar = ({ closeMenu, handleMenuToggle }: Props) => {
+  const [btnClose, setBtnClose] = useState(closeMenu);
   return (
     <S.Container>
       <h1>Dashboard</h1>
+      {closeMenu && (
+        <div
+          className="btn-close-menu"
+          onClick={handleMenuToggle}
+          title="close menu"
+        >
+          <FaWindowClose />
+          Close menu
+        </div>
+      )}
       <ul>
         <li className="selected">
           <FaUsers />

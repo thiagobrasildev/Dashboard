@@ -4,8 +4,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  height: 17%;
+  padding-bottom: 30px;
   border-bottom: 1px solid #eee;
+  background-color: #fff;
 `;
 
 export const Avatar = styled.div`

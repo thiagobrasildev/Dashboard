@@ -17,6 +17,10 @@ export const Container = styled.div<Props>`
     justify-content: space-between;
     margin-bottom: 10px;
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const Icon = styled.div`
