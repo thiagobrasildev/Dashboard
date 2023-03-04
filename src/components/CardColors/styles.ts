@@ -9,7 +9,7 @@ export const Container = styled.div<Props>`
   flex-direction: column;
   background-color: ${(props) => props.bgColor};
   flex: 1;
-  color: #fff;
+  color: #ffffff;
   padding: 16px;
 
   > div {

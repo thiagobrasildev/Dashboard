@@ -11,4 +11,8 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Raleway', sans-serif;
         font-size: 10px;
     }
+
+    a{
+        text-decoration: none;
+    }
 `;

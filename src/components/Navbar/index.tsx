@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   FaBell,
   FaBullseye,
   FaCog,
   FaHistory,
   FaLandmark,
+  FaMoon,
   FaRegEye,
   FaRegGem,
+  FaTachometerAlt,
   FaUsers,
   FaWindowClose,
 } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 import * as S from "./styles";
 
 type Props = {
@@ -19,9 +22,10 @@ type Props = {
 
 export const Navbar = ({ closeMenu, handleMenuToggle }: Props) => {
   const [btnClose, setBtnClose] = useState(closeMenu);
+
   return (
     <S.Container>
-      <h1>Dashboard</h1>
+      <h1>Dasboard</h1>
       {closeMenu && (
         <div
           className="btn-close-menu"
@@ -33,41 +37,74 @@ export const Navbar = ({ closeMenu, handleMenuToggle }: Props) => {
         </div>
       )}
       <ul>
-        <li className="selected">
-          <FaUsers />
-          Overview
-        </li>
         <li>
-          <FaRegEye />
-          Views
+          <NavLink to="/">
+            <FaTachometerAlt />
+            Dashboard
+          </NavLink>
         </li>
+
         <li>
-          <FaUsers />
-          Traffic
+          <NavLink to="/overview">
+            <FaUsers />
+            Overview
+          </NavLink>
         </li>
+
         <li>
-          <FaBullseye />
-          Geo
+          <NavLink to="/views">
+            <FaRegEye />
+            Views
+          </NavLink>
         </li>
+
         <li>
-          <FaRegGem />
-          Orders
+          <NavLink to="/traffic">
+            <FaUsers />
+            Traffic
+          </NavLink>
         </li>
+
         <li>
-          <FaBell />
-          News
+          <NavLink to="geo">
+            <FaBullseye />
+            Geo
+          </NavLink>
         </li>
+
         <li>
-          <FaLandmark />
-          General
+          <NavLink to="orders">
+            <FaRegGem />
+            Orders
+          </NavLink>
         </li>
+
         <li>
-          <FaHistory />
-          History
+          <NavLink to="news">
+            <FaBell />
+            News
+          </NavLink>
         </li>
+
         <li>
-          <FaCog />
-          Settings
+          <NavLink to="general">
+            <FaLandmark />
+            General
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="history">
+            <FaHistory />
+            History
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink to="settings">
+            <FaCog />
+            Settings
+          </NavLink>
         </li>
       </ul>
     </S.Container>

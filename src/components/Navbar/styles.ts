@@ -6,43 +6,49 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   padding-top: 30px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.backgroundSidebar};
 
   h1 {
     font-size: 1.8rem;
     font-weight: 400;
-    width: 100%;
-    padding-left: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    margin-left: 10px;
   }
 
   ul {
     width: 100%;
 
     li {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 10px;
       width: 100%;
-      padding: 10px 16px;
-      font-size: 1.5rem;
-      font-weight: 400;
-      cursor: pointer;
 
-      svg {
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        padding: 10px 16px;
         font-size: 1.5rem;
-      }
+        font-weight: 400;
+        cursor: pointer;
+        gap: 10px;
+        text-decoration: none;
+        color: ${(props) => props.theme.colors.text};
 
-      &:hover {
-        background-color: #ccc;
-        color: #000;
-      }
-    }
+        &.active {
+          background-color: #2196f3;
+          color: #fff;
+        }
 
-    .selected {
-      background-color: #2196f3;
-      color: #fff;
+        svg {
+          font-size: 1.5rem;
+        }
+
+        &:hover {
+          background-color: #ccc;
+          color: #000;
+        }
+      }
     }
   }
 

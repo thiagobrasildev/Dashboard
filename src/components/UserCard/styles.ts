@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   padding-bottom: 30px;
   border-bottom: 1px solid #eee;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.backgroundSidebar}; ;
 `;
 
 export const Avatar = styled.div`
@@ -29,6 +29,7 @@ export const Infos = styled.div`
   overflow: hidden;
   height: 60px;
   margin-top: 22px;
+  color: ${(props) => props.theme.colors.text};
 
   h1 {
     font-size: 1.5rem;

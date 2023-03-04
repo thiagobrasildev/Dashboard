@@ -45,7 +45,7 @@ export const Button = styled.button`
   background-color: #616161;
   padding: 10px 16px;
   font-size: 1.5rem;
-  color: #fff;
+  color: ${(props) => props.theme.colors.text};
   gap: 5px;
   cursor: pointer;
   width: fit-content;

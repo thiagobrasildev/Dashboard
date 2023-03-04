@@ -16,6 +16,6 @@ export const Container = styled.div`
   }
 
   a {
-    color: #000;
+    color: ${(props) => props.theme.colors.text};
   }
 `;
